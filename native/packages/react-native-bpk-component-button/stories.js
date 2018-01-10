@@ -16,6 +16,8 @@
  * limitations under the License.
  */
 
+/* @flow */
+
 import { Text, View, Platform, ScrollView, StyleSheet } from 'react-native';
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';

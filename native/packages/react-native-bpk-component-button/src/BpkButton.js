@@ -16,6 +16,8 @@
  * limitations under the License.
  */
 
+/* @flow */
+
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import { View, Platform, ViewPropTypes } from 'react-native';
@@ -39,7 +41,20 @@ import BpkButtonContainer from './layout/BpkButtonContainer';
 
 const BUTTON_TYPES = ['primary', 'featured', 'secondary', 'destructive'];
 
-const BpkButton = props => {
+type Props = {
+  onPress: (event: SyntheticEvent<>) => void,
+  title: string,
+  accessibilityLabel: ?string,
+  disabled: boolean,
+  icon: ?any,
+  iconOnly: boolean,
+  large: boolean,
+  style: ?(Object | Array<Object>),
+  type: string,
+  theme: ?any,
+};
+
+const BpkButton = (props: Props) => {
   const {
     accessibilityLabel,
     disabled,

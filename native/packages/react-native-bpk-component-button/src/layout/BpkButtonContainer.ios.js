@@ -16,6 +16,8 @@
  * limitations under the License.
  */
 
+/* @flow */
+
 import { ViewPropTypes } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';

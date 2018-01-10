@@ -16,6 +16,8 @@
  * limitations under the License.
  */
 
+/* @flow */
+
 import { StyleSheet } from 'react-native';
 import difference from 'lodash/difference';
 import { colorWhite } from 'bpk-tokens/tokens/base.react.native';
@@ -38,9 +40,9 @@ const REQUIRED_THEME_ATTRIBUTES = {
 export const THEMEABLE_TYPES = Object.keys(REQUIRED_THEME_ATTRIBUTES);
 
 export const getStyleForElement = (
-  elementType,
-  { type, title, icon, iconOnly, large, disabled },
-) => {
+  elementType: string,
+  { type, title, icon, iconOnly, large, disabled }: Object,
+): Array<Object> => {
   // Start with base style.
   const styleForElement = [styles.base[elementType]];
 
@@ -79,9 +81,9 @@ export const getStyleForElement = (
 };
 
 export const getThemingForElement = (
-  elementType,
-  theme,
-  { type, disabled },
+  elementType: string,
+  theme: ?Object,
+  { type, disabled }: Object,
 ) => {
   const themeForElement = {};
   if (theme && !disabled && styles.themeMappings[elementType]) {
@@ -157,7 +159,7 @@ export const getAndroidBackgroundColour = (theme, props) => {
   return StyleSheet.create({ style }).style;
 };
 
-export const textStyle = (theme, props) => [
+export const textStyle = (theme: ?Object, props: Object) => [
   getStyleForElement('text', props),
   getThemingForElement('text', theme, props),
 ];
